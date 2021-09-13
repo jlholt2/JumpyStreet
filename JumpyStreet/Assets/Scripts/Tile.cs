@@ -8,14 +8,20 @@ public class Tile : Movable
     public TileType TypeOfTile { get { return typeOfTile; } }
 
     [SerializeField] private TileType typeOfTile = 0;
+    private Transform mainCamPos;
 
     public override void Awake()
     {
         OnActiveAwake();
+        mainCamPos = Camera.main.transform;
     }
     public override void Update()
     {
         OnActiveUpdate();
+        if (mainCamPos.position.y <= -10)
+        {
+            Destroy(gameObject);
+        }
     }
     public override void FixedUpdate()
     {
