@@ -1,26 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public enum TileType { Walkable = 0, Water = 1, Wall = 2 }   
-public class Tile : Movable
+[System.Serializable]
+public class Tile : MonoBehaviour
 {
     public TileType TypeOfTile { get { return typeOfTile; } }
-    public Sprite tileSprite;
 
     [Header("Tile Variables")]
     [SerializeField] private TileType typeOfTile = 0;
+    public Sprite tileSprite;
 
-    public override void Awake()
+    public void CreateTileFromData(TileData data)
     {
-        OnActiveAwake();
-    }
-    public override void Update()
-    {
-        OnActiveUpdate();
-    }
-    public override void FixedUpdate()
-    {
-        OnActiveFixedUpdate();
+        typeOfTile = data.typeOfTile;
+        tileSprite = data.tileSprite;
     }
 }
