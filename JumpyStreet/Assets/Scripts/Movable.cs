@@ -11,6 +11,12 @@ public class Movable : MonoBehaviour
     public static int speedupCooldown = 60*10;
     public static int numOfCycles = 0;
 
+    [Header("Read Only Variables")]
+    [SerializeField] private float MoveSpeed;
+    [SerializeField] private int SpeedupTimer;
+    [SerializeField] private int SpeedupCooldown;
+    [SerializeField] private int NumOfCycles;
+
     public virtual void Awake()
     {
         OnActiveAwake();
@@ -39,6 +45,10 @@ public class Movable : MonoBehaviour
             moveSpeed += 0.002f;
             //print("Current moveSpeed: " + moveSpeed);
         }
+        MoveSpeed = moveSpeed;
+        SpeedupTimer = speedupTimer;
+        SpeedupCooldown = speedupCooldown;
+        NumOfCycles = numOfCycles;
     }
 
     public virtual void FixedUpdate()

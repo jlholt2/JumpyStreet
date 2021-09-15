@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 1792501810}
   - component: {fileID: 1792501809}
   - component: {fileID: 1792501808}
+  - component: {fileID: 1792501812}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -263,6 +264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711da109adf3b9a43bf83f3f761d0162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveSpeed: 0
+  SpeedupTimer: 0
+  SpeedupCooldown: 0
+  NumOfCycles: 0
   typeOfTile: 0
 --- !u!212 &1792501810
 SpriteRenderer:
@@ -330,3 +335,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792501812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792501807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81f60c38e6807a499d0526830421296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyY: -7
