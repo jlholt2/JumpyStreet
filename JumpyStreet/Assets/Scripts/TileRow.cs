@@ -27,10 +27,14 @@ public class TileRow : Scrollable
             Tile tile = tileGO.AddComponent(typeof(Tile)) as Tile;
             tile.CreateTileFromData(tileData[i]);
             SpriteRenderer tileSR = tileGO.AddComponent(typeof(SpriteRenderer)) as SpriteRenderer;
-            Collider2D tileColl = tileGO.AddComponent(typeof(BoxCollider2D)) as Collider2D;
+            BoxCollider2D tileColl = tileGO.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
+            tileColl.isTrigger = true;
+            tileColl.size = Vector2.one;
             tile.transform.parent = transform;
+            tileGO.tag = "Tile";
             tile.transform.localPosition = new Vector2(i,0);
             tileSR.sprite = tile.tileSprite;
+            // NOTE: Need to set sorting layer for tileSR to "Tiles"
             tiles[i] = tile;
         }
     }

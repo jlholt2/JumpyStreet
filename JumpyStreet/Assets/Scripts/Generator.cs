@@ -10,6 +10,9 @@ public class Generator : MonoBehaviour
     private TileRow lastCreatedRow;
 
     public static bool generateRow;
+    public static float yOffset = 0f;
+
+    [SerializeField] private float YOffset;
 
     private void Start()
     {
@@ -18,6 +21,7 @@ public class Generator : MonoBehaviour
 
     private void Update()
     {
+        YOffset = yOffset;
         if (generateRow)
         {
             GenerateTileRow();
@@ -29,7 +33,7 @@ public class Generator : MonoBehaviour
     {
         // Create new TileRow from currentMetaTile.tileRows[currentRow]
         GameObject newRowGO = new GameObject("TileRow");
-        newRowGO.transform.position = transform.position;
+        newRowGO.transform.position = new Vector2(transform.position.x,transform.position.y-yOffset);
         TileRow newRow = newRowGO.AddComponent(typeof(TileRow)) as TileRow;
         DestroyOnBottom destroyRow = newRowGO.AddComponent(typeof(DestroyOnBottom)) as DestroyOnBottom;
         newRow.SetTilesInRow(currentMetaTile.tileRows[currentRow].tiles);

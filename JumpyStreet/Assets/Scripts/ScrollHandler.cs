@@ -17,10 +17,12 @@ public class ScrollHandler : MonoBehaviour
     void Update()
     {
         // If (!gameOver)
-        if(NumOfCycles < 26)
+        if(NumOfCycles < 30)
         {
             if (Scrollable.speedupTimer > 0)
             {
+                Scrollable.speedupTimer--;
+                Scrollable.speedupTimer--;
                 Scrollable.speedupTimer--;
             }
             else

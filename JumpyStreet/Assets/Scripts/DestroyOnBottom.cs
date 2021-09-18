@@ -12,6 +12,8 @@ public class DestroyOnBottom : MonoBehaviour
     {
         if(transform.position.y <= destroyY)
         {
+            // NOTE: Get distance under coordinate of -7f and save it to a static offset variable in Generator
+            Generator.yOffset = transform.position.y + 7f;
             Destroy(gameObject);
             Generator.generateRow = true;
         }
