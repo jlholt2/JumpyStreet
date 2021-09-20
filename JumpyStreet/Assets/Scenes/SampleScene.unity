@@ -390,43 +390,49 @@ MonoBehaviour:
   currentMetaTile:
     tileRows:
     - tiles:
-      - typeOfTile: 2
-        tileSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-      - typeOfTile: 2
-        tileSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-      - typeOfTile: 2
-        tileSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-      - typeOfTile: 2
-        tileSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
     - tiles:
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 2
         tileSprite: {fileID: 4238620846075884223, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
@@ -434,36 +440,68 @@ MonoBehaviour:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 2
-        tileSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 4238620846075884223, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 2
-        tileSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 4238620846075884223, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+    - tiles:
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 2
-        tileSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 4238620846075884223, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 2
+        tileSprite: {fileID: 4238620846075884223, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 2
+        tileSprite: {fileID: 4238620846075884223, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 2
+        tileSprite: {fileID: 4238620846075884223, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 2
+        tileSprite: {fileID: 4238620846075884223, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-      - typeOfTile: 0
-        tileSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
   currentRow: 0
+  YOffset: 0
 --- !u!4 &1022364996
 Transform:
   m_ObjectHideFlags: 0
