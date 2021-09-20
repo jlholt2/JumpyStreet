@@ -33,7 +33,7 @@ public class Generator : MonoBehaviour
     {
         // Create new TileRow from currentMetaTile.tileRows[currentRow]
         GameObject newRowGO = new GameObject("TileRow");
-        newRowGO.transform.position = new Vector2(transform.position.x,transform.position.y-yOffset);
+        newRowGO.transform.position = new Vector2(transform.position.x,transform.position.y+yOffset);
         TileRow newRow = newRowGO.AddComponent(typeof(TileRow)) as TileRow;
         DestroyOnBottom destroyRow = newRowGO.AddComponent(typeof(DestroyOnBottom)) as DestroyOnBottom;
         newRow.SetTilesInRow(currentMetaTile.tileRows[currentRow].tiles);
