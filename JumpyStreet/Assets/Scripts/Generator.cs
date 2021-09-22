@@ -18,7 +18,7 @@ public class Generator : MonoBehaviour
     private void Awake()
     {
         metaTileHolder = gameObject.GetComponent<MetaTileHolder>();
-        Application.targetFrameRate = 30;
+        Application.targetFrameRate = 60;
     }
 
     private void Start()
@@ -78,6 +78,8 @@ public class Generator : MonoBehaviour
 
     private void GenerateMetaTile()
     {
-        currentMetaTile = metaTileHolder.metaTiles[Random.Range(1,metaTileHolder.metaTiles.Length)];
+        int randValue = Random.Range(0, metaTileHolder.metaTiles.Length);
+        Debug.Log("Loading MetaTile at value "+randValue+".");
+        currentMetaTile = metaTileHolder.metaTiles[randValue];
     }
 }
