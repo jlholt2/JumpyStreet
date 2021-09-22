@@ -8,14 +8,21 @@ public class Generator : MonoBehaviour
     public int currentRow; // used to determine which row of the metatile should be generated. Counts up as a row is generated. When it reaches the current MetaTile's array length, should reset to 0 and set currentMetaTile to a different random MetaTile.
 
     private TileRow lastCreatedRow;
+    private MetaTileHolder metaTileHolder;
 
     public static bool generateRow;
     public static float yOffset = 0f;
 
     [SerializeField] private float YOffset;
 
+    private void Awake()
+    {
+        metaTileHolder = gameObject.GetComponent<MetaTileHolder>();
+    }
+
     private void Start()
     {
+        //GenerateMetaTile(); // Uncomment this when there is at least 1 metaTile in attached MetaTileHolder
         BeginningGeneration();
     }
 
@@ -65,5 +72,10 @@ public class Generator : MonoBehaviour
                 rows[j].transform.localPosition = new Vector2(rows[j].transform.localPosition.x, rows[j].transform.localPosition.y-1);
             }
         }
+    }
+
+    private void GenerateMetaTile()
+    {
+        currentMetaTile = metaTileHolder.metaTiles[Random.Range(1,metaTileHolder.metaTiles.Length)];
     }
 }
