@@ -18,11 +18,12 @@ public class Generator : MonoBehaviour
     private void Awake()
     {
         metaTileHolder = gameObject.GetComponent<MetaTileHolder>();
+        Application.targetFrameRate = 30;
     }
 
     private void Start()
     {
-        //GenerateMetaTile(); // Uncomment this when there is at least 1 metaTile in attached MetaTileHolder
+        GenerateMetaTile();
         BeginningGeneration();
     }
 
@@ -53,6 +54,7 @@ public class Generator : MonoBehaviour
         if(currentRow >= currentMetaTile.tileRows.Length)
         {
             currentRow = 0;
+            GenerateMetaTile();
         }
     }
 
