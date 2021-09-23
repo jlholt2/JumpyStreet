@@ -13,8 +13,8 @@ public class Generator : MonoBehaviour
     public static bool generateRow;
     public static float yOffset = 0f;
 
-    [SerializeField] private float YOffset;
-    [SerializeField] private float prevFrameMoveSpeed;
+    //[SerializeField] private float YOffset;
+    //[SerializeField] private float prevFrameMoveSpeed;
 
     private List<TileRow> activeTileRows;
 
@@ -33,17 +33,17 @@ public class Generator : MonoBehaviour
 
     private void Update()
     {
-        YOffset = yOffset;
+        //YOffset = yOffset;
         if (generateRow)
         {
             GenerateTileRow();
             generateRow = false;
         }
-        if(prevFrameMoveSpeed != Scrollable.moveSpeed)
-        {
-            Debug.Log("prevFrameMoveSpeed updated: " + (prevFrameMoveSpeed - Scrollable.moveSpeed) + " difference.");
-        }
-        prevFrameMoveSpeed = Scrollable.moveSpeed;
+        //if(prevFrameMoveSpeed != Scrollable.moveSpeed)
+        //{
+        //    Debug.Log("prevFrameMoveSpeed updated: " + (prevFrameMoveSpeed - Scrollable.moveSpeed) + " difference.");
+        //}
+        //prevFrameMoveSpeed = Scrollable.moveSpeed;
     }
     private void FixedUpdate()
     {
@@ -54,7 +54,8 @@ public class Generator : MonoBehaviour
     {
         // Create new TileRow from currentMetaTile.tileRows[currentRow]
         GameObject newRowGO = new GameObject("TileRow");
-        newRowGO.transform.position = new Vector2(transform.position.x,transform.position.y+yOffset+(prevFrameMoveSpeed-Scrollable.moveSpeed));
+        //newRowGO.transform.position = new Vector2(transform.position.x,transform.position.y+yOffset+(prevFrameMoveSpeed-Scrollable.moveSpeed));
+        newRowGO.transform.position = new Vector2(transform.position.x,transform.position.y);
         TileRow newRow = newRowGO.AddComponent(typeof(TileRow)) as TileRow;
         DestroyOnBottom destroyRow = newRowGO.AddComponent(typeof(DestroyOnBottom)) as DestroyOnBottom;
         newRow.SetTilesInRow(currentMetaTile.tileRows[currentRow].tiles);
