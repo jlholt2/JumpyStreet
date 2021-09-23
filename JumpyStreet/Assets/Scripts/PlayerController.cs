@@ -36,7 +36,7 @@ public class PlayerController : Scrollable
                 if (upSensor.sensedTileType != TileType.Wall)
                 {
                     bounceTarget = new Vector2(transform.position.x, transform.position.y + 1);
-                    if (bounceTarget.y > 4.5f)
+                    if (bounceTarget.y > 5.5f)
                     {
                         bounceTarget = new Vector2(transform.position.x, transform.position.y);
                     }
@@ -49,7 +49,7 @@ public class PlayerController : Scrollable
                 if (downSensor.sensedTileType != TileType.Wall)
                 {
                     bounceTarget = new Vector2(transform.position.x, transform.position.y - 1);
-                    if (bounceTarget.y < -4.5f)
+                    if (bounceTarget.y < -5f)
                     {
                         bounceTarget = new Vector2(transform.position.x, transform.position.y);
                     }

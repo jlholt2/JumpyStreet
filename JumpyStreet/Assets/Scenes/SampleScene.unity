@@ -254,7 +254,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.25, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -329,7 +329,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.25, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -643,6 +643,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -680,6 +685,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -717,6 +727,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -754,6 +769,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -791,6 +811,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -828,9 +853,12 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
   currentRow: 0
-  YOffset: 0
-  prevFrameMoveSpeed: 0
 --- !u!4 &1022364996
 Transform:
   m_ObjectHideFlags: 0
@@ -912,6 +940,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
   - tileRows:
     - tiles:
       - typeOfTile: 0
@@ -950,6 +983,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -987,6 +1025,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -1024,6 +1067,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -1061,6 +1109,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -1098,6 +1151,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
   - tileRows:
     - tiles:
       - typeOfTile: 0
@@ -1136,6 +1194,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -1173,6 +1236,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -1210,6 +1278,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -1247,6 +1320,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
     - tiles:
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -1284,6 +1362,11 @@ MonoBehaviour:
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: 1588627153026928075, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
 --- !u!1 &1405295485
 GameObject:
   m_ObjectHideFlags: 0

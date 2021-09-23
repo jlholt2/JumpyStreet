@@ -59,6 +59,7 @@ public class Generator : MonoBehaviour
         TileRow newRow = newRowGO.AddComponent(typeof(TileRow)) as TileRow;
         DestroyOnBottom destroyRow = newRowGO.AddComponent(typeof(DestroyOnBottom)) as DestroyOnBottom;
         newRow.SetTilesInRow(currentMetaTile.tileRows[currentRow].tiles);
+        newRow.SetSpawnData(currentMetaTile.tileRows[currentRow]);
         lastCreatedRow = newRow;
         AddTileRowToList(newRow);
         newRow.AdjustAllTiles();
