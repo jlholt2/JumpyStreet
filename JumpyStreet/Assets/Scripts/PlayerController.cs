@@ -36,7 +36,7 @@ public class PlayerController : Scrollable
                 if (upSensor.sensedTileType != TileType.Wall)
                 {
                     bounceTarget = new Vector2(transform.position.x, transform.position.y + 1);
-                    if (bounceTarget.y > 4.5)
+                    if (bounceTarget.y > 4.5f)
                     {
                         bounceTarget = new Vector2(transform.position.x, transform.position.y);
                     }
@@ -49,7 +49,7 @@ public class PlayerController : Scrollable
                 if (downSensor.sensedTileType != TileType.Wall)
                 {
                     bounceTarget = new Vector2(transform.position.x, transform.position.y - 1);
-                    if (bounceTarget.y < -4.5)
+                    if (bounceTarget.y < -4.5f)
                     {
                         bounceTarget = new Vector2(transform.position.x, transform.position.y);
                     }
@@ -63,9 +63,9 @@ public class PlayerController : Scrollable
                 if (leftSensor.sensedTileType != TileType.Wall)
                 {
                     bounceTarget = new Vector2(transform.position.x - 1, transform.position.y);
-                    if (bounceTarget.x < -8.5)
+                    if (bounceTarget.x < -8.5f)
                     {
-                        bounceTarget = new Vector2(-8, transform.position.y);
+                        bounceTarget = new Vector2(-8.5f, transform.position.y);
                     }
                     moving = true;
                 }
@@ -77,9 +77,9 @@ public class PlayerController : Scrollable
                 if (rightSensor.sensedTileType != TileType.Wall)
                 {
                     bounceTarget = new Vector2(transform.position.x + 1, transform.position.y);
-                    if (bounceTarget.x > 8.5)
+                    if (bounceTarget.x > 8.5f)
                     {
-                        bounceTarget = new Vector2(8, transform.position.y);
+                        bounceTarget = new Vector2(8.5f, transform.position.y);
                     }
                     moving = true;
                 }
