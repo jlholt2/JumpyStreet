@@ -10,6 +10,12 @@ public class PlayerController : Scrollable
     [SerializeField] private Sprite[] playerSprites = new Sprite[2];
     [SerializeField] private SpriteRenderer playerSR;
 
+    [Header("Sensors")]
+    [SerializeField] private PlayerSensor upSensor;
+    [SerializeField] private PlayerSensor downSensor;
+    [SerializeField] private PlayerSensor leftSensor;
+    [SerializeField] private PlayerSensor rightSensor;
+
     private void Awake()
     {
         bounceTarget = transform.position;
@@ -27,46 +33,58 @@ public class PlayerController : Scrollable
             transform.position = bounceTarget;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                bounceTarget = new Vector2(transform.position.x, transform.position.y + 1);
-                if (bounceTarget.y > 4.5)
+                if (upSensor.sensedTileType != TileType.Wall)
                 {
-                    bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                    bounceTarget = new Vector2(transform.position.x, transform.position.y + 1);
+                    if (bounceTarget.y > 4.5)
+                    {
+                        bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                    }
+                    moving = true;
                 }
                 ResetRotation();
-                moving = true;
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                bounceTarget = new Vector2(transform.position.x, transform.position.y - 1);
-                if (bounceTarget.y < -4.5)
+                if (downSensor.sensedTileType != TileType.Wall)
                 {
-                    bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                    bounceTarget = new Vector2(transform.position.x, transform.position.y - 1);
+                    if (bounceTarget.y < -4.5)
+                    {
+                        bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                    }
                 }
+                moving = true;
                 ResetRotation();
                 transform.Rotate(0f, 0f, 180f);
-                moving = true;
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                bounceTarget = new Vector2(transform.position.x - 1, transform.position.y);
-                if(bounceTarget.x < -8)
+                if (leftSensor.sensedTileType != TileType.Wall)
                 {
-                    bounceTarget = new Vector2(-8, transform.position.y);
+                    bounceTarget = new Vector2(transform.position.x - 1, transform.position.y);
+                    if (bounceTarget.x < -8.5)
+                    {
+                        bounceTarget = new Vector2(-8, transform.position.y);
+                    }
+                    moving = true;
                 }
                 ResetRotation();
                 transform.Rotate(0f, 0f, 90f);
-                moving = true;
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                bounceTarget = new Vector2(transform.position.x + 1, transform.position.y);
-                if (bounceTarget.x > 8)
+                if (rightSensor.sensedTileType != TileType.Wall)
                 {
-                    bounceTarget = new Vector2(8, transform.position.y);
+                    bounceTarget = new Vector2(transform.position.x + 1, transform.position.y);
+                    if (bounceTarget.x > 8.5)
+                    {
+                        bounceTarget = new Vector2(8, transform.position.y);
+                    }
+                    moving = true;
                 }
                 ResetRotation();
                 transform.Rotate(0f, 0f, -90f);
-                moving = true;
             }
         }
         else
@@ -77,7 +95,8 @@ public class PlayerController : Scrollable
 
     private void OnTriggerStay2D(Collider2D hit)
     {
-        //Debug.Log("Colliding");
+        // for checking adjacent tiles, add sensors
+
         if (!moving)
         {
             if (hit.tag == "Tile")

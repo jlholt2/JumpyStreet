@@ -5,5 +5,5 @@
 [System.Serializable]
 public class TileRowData
 {
-    public TileData[] tiles = new TileData[19]; // contains the tiles for the rows. Must always be size 18.
+    public TileData[] tiles = new TileData[18]; // contains the tiles for the rows. Must always be size 18.
 }

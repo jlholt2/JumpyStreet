@@ -38,4 +38,15 @@ public class TileRow : Scrollable
             tiles[i] = tile;
         }
     }
+
+    public void AdjustAllTiles()
+    {
+        // get float value of y position of first TileRow in activeTileRows
+        float firstTileX = tiles[0].transform.position.x;
+
+        for (int i = 1; i < tiles.Length; i++)
+        {
+            tiles[i].transform.position = new Vector2(firstTileX + i, tiles[i].transform.position.y);
+        }
+    }
 }
