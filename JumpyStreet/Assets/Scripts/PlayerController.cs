@@ -105,12 +105,17 @@ public class PlayerController : Scrollable
                     bounceTarget = new Vector2(bounceTarget.x,hit.transform.position.y);
                 }
             }
-        }
-        if(hit.tag == "MovingObj")
-        {
-            if (hit.GetComponent<MovingObject>().objectType == SpawnObjectData.Car)
+            if (hit.tag == "MovingObj")
             {
-                Debug.Log("Hit by car!");
+                switch (hit.GetComponent<MovingObject>().objectType)
+                {
+                    case SpawnObjectData.Car:
+                        Debug.Log("Hit by car!");
+                        break;
+                    case SpawnObjectData.Log:
+                        bounceTarget = new Vector2(bounceTarget.x + (hit.GetComponent<MovingObject>().moveSpeed * hit.GetComponent<MovingObject>().spawnDirMod), hit.transform.position.y);
+                        break;
+                }
             }
         }
     }
