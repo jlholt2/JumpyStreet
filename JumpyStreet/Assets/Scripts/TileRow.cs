@@ -13,6 +13,8 @@ public class TileRow : Scrollable
 
     [SerializeField] private int spawnCooldown;
 
+    public GameObject movingObjPrefab;
+
     private void Update()
     {
         if (spawnCooldown > 0)
@@ -54,6 +56,7 @@ public class TileRow : Scrollable
     {
         // get float value of y position of first TileRow in activeTileRows
         float firstTileX = tiles[0].transform.position.x;
+        //Debug.Log(firstTileX);
 
         for (int i = 1; i < tiles.Length; i++)
         {
@@ -64,19 +67,23 @@ public class TileRow : Scrollable
     public void SetSpawnData(TileRowData rowData)
     {
         spawnData = rowData.spawnData;
-        spawnDir = rowData.spawnDir;
-        if(spawnDir == SpawnDir.Random)
+        if(rowData.spawnDir == SpawnDir.Random)
         {
             switch (Random.Range(0, 2))
             {
-                case 1:
+                case 0:
                     spawnDir = SpawnDir.Right;
                     break;
-                case 2:
+                case 1:
                     spawnDir = SpawnDir.Left;
                     break;
             }
         }
+        else
+        {
+            spawnDir = rowData.spawnDir;
+        }
+        //Debug.Log("Spawn Dir is " + spawnDir);
         moveSpeed = rowData.moveSpeed[Random.Range(0, rowData.moveSpeed.Length)];
         spawnRate = rowData.spawnRate;
         spawnCooldown = spawnRate[Random.Range(0, spawnRate.Length)];
@@ -84,23 +91,43 @@ public class TileRow : Scrollable
 
     private void SpawnObject()
     {
-        GameObject spawnedObject = null;
-        switch (spawnData)
+        if (spawnData != SpawnObjectData.None)
         {
-            default:
-                break;
-            case SpawnObjectData.Car:
-                // set spawnedObject to Car prefab
-                break;
-            case SpawnObjectData.Log:
-                // set spawnedObject to Log prefab
-                break;
-        }
-        if (spawnedObject != null)
-        {
+            //Debug.Log("Spawning moving object.");
             // Instantiate spawnedObject
-            // Add MovingObject component to spawnedObject and set its parent to 'this'
-            // Set spawnedObject.MovingObject.moveSpeed to moveSpeed
+            GameObject spawnedObject = Instantiate(movingObjPrefab, transform.position, Quaternion.identity);
+            MovingObject movingObj = spawnedObject.GetComponent<MovingObject>();
+            switch (spawnData)
+            {
+                default:
+                    Debug.Log("Assigned spawndata not accounted for. (" + spawnData + ")");
+                    break;
+                case SpawnObjectData.Car:
+                    movingObj.objectType = SpawnObjectData.Car;
+                    break;
+                case SpawnObjectData.Log:
+                    movingObj.objectType = SpawnObjectData.Log;
+                    break;
+            }
+            // Make spawnedObject's parent this transform
+            spawnedObject.transform.parent = transform;
+            // Set movingObj.moveSpeed to moveSpeed
+            movingObj.moveSpeed = moveSpeed;
+            // Set movingObj.spawnDirMod according to spawnDir and set movingObj.transform.localPosition according to spawnDir (9.5,-9.5)
+            switch (spawnDir)
+            {
+                case SpawnDir.Left:
+                    movingObj.spawnDirMod = -1;
+                    spawnedObject.transform.localPosition = new Vector2(19f,0);
+                    break;
+                case SpawnDir.Right:
+                    movingObj.spawnDirMod = 1;
+                    spawnedObject.transform.localPosition = new Vector2(-1f, 0);
+                    break;
+                default:
+                    Debug.Log("Uh oh! Something went wrong when spawning in a spawnable object ...");
+                    break;
+            }
             spawnCooldown = spawnRate[Random.Range(0,spawnRate.Length)];
         }
     }

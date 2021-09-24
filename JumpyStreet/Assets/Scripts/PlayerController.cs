@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Scrollable
@@ -95,8 +95,6 @@ public class PlayerController : Scrollable
 
     private void OnTriggerStay2D(Collider2D hit)
     {
-        // for checking adjacent tiles, add sensors
-
         if (!moving)
         {
             if (hit.tag == "Tile")
@@ -108,13 +106,20 @@ public class PlayerController : Scrollable
                 }
             }
         }
+        if(hit.tag == "MovingObj")
+        {
+            if (hit.GetComponent<MovingObject>().objectType == SpawnObjectData.Car)
+            {
+                Debug.Log("Hit by car!");
+            }
+        }
     }
 
     private void FixedUpdate()
     {
         //when making this script a child of scrollable, add OnActiveFixedUpdate()
         OnActiveFixedUpdate();
-        bounceTarget = new Vector2(bounceTarget.x, MathUtils.Round((bounceTarget.y - moveSpeed), 3));
+        bounceTarget = new Vector2(bounceTarget.x, MathUtils.Round((bounceTarget.y - scrollSpeed), 3));
         if (moving)
         {
             MovePlayer();

@@ -11,7 +11,7 @@ public class ScrollHandler : MonoBehaviour
 
     private void Awake()
     {
-        Scrollable.moveSpeed = 0f; Scrollable.speedupTimer = Scrollable.speedupCooldown; Scrollable.numOfCycles = 0;
+        Scrollable.scrollSpeed = 0f; Scrollable.speedupTimer = Scrollable.speedupCooldown; Scrollable.numOfCycles = 0;
     }
 
     void Update()
@@ -29,12 +29,12 @@ public class ScrollHandler : MonoBehaviour
             {
                 Scrollable.numOfCycles++;
                 Scrollable.speedupTimer = Scrollable.speedupCooldown + (Scrollable.speedupCooldown * ((Scrollable.numOfCycles * 2) / 5));
-                Scrollable.moveSpeed += 0.002f;
+                Scrollable.scrollSpeed += 0.002f;
                 //print("Current Scrollable.moveSpeed: " + Scrollable.moveSpeed);
             }
         }
 
-        MoveSpeed = Scrollable.moveSpeed;
+        MoveSpeed = Scrollable.scrollSpeed;
         SpeedupTimer = Scrollable.speedupTimer;
         SpeedupCooldown = Scrollable.speedupCooldown;
         NumOfCycles = Scrollable.numOfCycles;

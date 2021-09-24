@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tile
+  - MovingObj
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,9 @@ TagManager:
     locked: 0
   - name: Tiles
     uniqueID: 1831596095
+    locked: 0
+  - name: Moving Objects
+    uniqueID: 2753775763
     locked: 0
   - name: Player
     uniqueID: 1135565829
