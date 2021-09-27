@@ -8,7 +8,7 @@ public class MovingObject : MonoBehaviour
     public int spawnDirMod = 1;
     public float moveSpeed;
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector2 pos = transform.localPosition;
         transform.localPosition = new Vector2(pos.x+(moveSpeed*spawnDirMod),pos.y);
