@@ -2,7 +2,8 @@
 //using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Scrollable
+//public class PlayerController : Scrollable
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Vector2 bounceTarget;
     [SerializeField] private bool moving;
@@ -15,6 +16,8 @@ public class PlayerController : Scrollable
     [SerializeField] private PlayerSensor downSensor;
     [SerializeField] private PlayerSensor leftSensor;
     [SerializeField] private PlayerSensor rightSensor;
+
+    [SerializeField] private bool isParented;
 
     private void Awake()
     {
@@ -90,6 +93,8 @@ public class PlayerController : Scrollable
         else
         {
             playerSR.sprite = playerSprites[1];
+            isParented = false;
+            transform.SetParent(null);
         }
     }
 
@@ -113,9 +118,24 @@ public class PlayerController : Scrollable
                         Debug.Log("Hit by car!");
                         break;
                     case SpawnObjectData.Log:
-                        bounceTarget = new Vector2(bounceTarget.x + (hit.GetComponent<MovingObject>().moveSpeed * hit.GetComponent<MovingObject>().spawnDirMod), hit.transform.position.y);
+                        //bounceTarget = new Vector2(bounceTarget.x + (hit.GetComponent<MovingObject>().moveSpeed * hit.GetComponent<MovingObject>().spawnDirMod), hit.transform.position.y);
+                        if (!transform.IsChildOf(hit.transform))
+                        {
+                            isParented = true;
+                            transform.SetParent(hit.transform);
+                        }
                         break;
                 }
+            }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D hit)
+    {
+        if(hit.tag == "MovingObj")
+        {
+            if(transform.parent == hit.transform)
+            {
+                transform.SetParent(null);
             }
         }
     }
@@ -123,11 +143,35 @@ public class PlayerController : Scrollable
     private void FixedUpdate()
     {
         //when making this script a child of scrollable, add OnActiveFixedUpdate()
-        OnActiveFixedUpdate();
-        bounceTarget = new Vector2(bounceTarget.x, MathUtils.Round((bounceTarget.y - scrollSpeed), 3));
-        if (moving)
+        if (transform.parent == null)
+        {
+            isParented = false;
+        }
+        if (!isParented)
+        {
+            //OnActiveFixedUpdate();
+            //bounceTarget = new Vector2(bounceTarget.x, MathUtils.Round((bounceTarget.y - scrollSpeed), 3));
+            bounceTarget = new Vector2(bounceTarget.x, MathUtils.Round((bounceTarget.y - Scrollable.scrollSpeed), 3));
+        }
+        else
+        {
+        }
+        if (!moving)
+        {
+            bounceTarget = new Vector2(transform.position.x, transform.position.y);
+        }
+        else
         {
             MovePlayer();
+        }
+        //clamp bounceTarget to sides of screen
+        if (bounceTarget.x > 8.5f)
+        {
+            bounceTarget = new Vector2(8.5f, transform.position.y);
+        }
+        if (bounceTarget.x < -8.5f)
+        {
+            bounceTarget = new Vector2(-8.5f, transform.position.y);
         }
     }
 
