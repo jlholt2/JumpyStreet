@@ -17,26 +17,33 @@ public class ScrollHandler : MonoBehaviour
     void Update()
     {
         // If (!gameOver)
-        if(NumOfCycles < 30)
+        if (Scrollable.should_scroll)
         {
-            if (Scrollable.speedupTimer > 0)
+            if (NumOfCycles < 30)
             {
-                Scrollable.speedupTimer--;
-                Scrollable.speedupTimer--;
-                Scrollable.speedupTimer--;
+                if (Scrollable.speedupTimer > 0)
+                {
+                    Scrollable.speedupTimer--;
+                    Scrollable.speedupTimer--;
+                    Scrollable.speedupTimer--;
+                }
+                else
+                {
+                    Scrollable.numOfCycles++;
+                    Scrollable.speedupTimer = Scrollable.speedupCooldown + (Scrollable.speedupCooldown * ((Scrollable.numOfCycles * 2) / 5));
+                    Scrollable.scrollSpeed += 0.002f;
+                    //print("Current Scrollable.moveSpeed: " + Scrollable.moveSpeed);
+                }
             }
-            else
-            {
-                Scrollable.numOfCycles++;
-                Scrollable.speedupTimer = Scrollable.speedupCooldown + (Scrollable.speedupCooldown * ((Scrollable.numOfCycles * 2) / 5));
-                Scrollable.scrollSpeed += 0.002f;
-                //print("Current Scrollable.moveSpeed: " + Scrollable.moveSpeed);
-            }
-        }
 
-        MoveSpeed = Scrollable.scrollSpeed;
-        SpeedupTimer = Scrollable.speedupTimer;
-        SpeedupCooldown = Scrollable.speedupCooldown;
-        NumOfCycles = Scrollable.numOfCycles;
+            MoveSpeed = Scrollable.scrollSpeed;
+            SpeedupTimer = Scrollable.speedupTimer;
+            SpeedupCooldown = Scrollable.speedupCooldown;
+            NumOfCycles = Scrollable.numOfCycles;
+        }
+        else
+        {
+            MoveSpeed = 0;
+        }
     }
 }
