@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D hit)
     {
-        if (!moving && !Scrollable.should_scroll)
+        if (!moving && Scrollable.should_scroll)
         {
             if (hit.tag == "Tile")
             {
@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
                 {
                     case SpawnObjectData.Car:
                         Debug.Log("Hit by car!");
-                        Death();
+                        StartCoroutine(Death());
                         break;
                     case SpawnObjectData.Log:
                         //bounceTarget = new Vector2(bounceTarget.x + (hit.GetComponent<MovingObject>().moveSpeed * hit.GetComponent<MovingObject>().spawnDirMod), hit.transform.position.y);
@@ -185,6 +185,10 @@ public class PlayerController : MonoBehaviour
         {
             bounceTarget = new Vector2(-8.5f, transform.position.y);
         }
+        if(transform.position.y <= -6)
+        {
+            StartCoroutine(Death());
+        }
     }
 
     private void MovePlayer()
@@ -199,12 +203,14 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Death()
     {
+        Debug.Log("Death Event!");
         can_move = false;
         Scrollable.should_scroll = false;
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 60*5; i++)
         {
             yield return new WaitForEndOfFrame();
         }
         // return to Main Menu
+        SceneManager.LoadScene("MainMenu");
     }
 }

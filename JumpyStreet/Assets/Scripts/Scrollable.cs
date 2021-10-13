@@ -34,10 +34,10 @@ public class Scrollable : MonoBehaviour
 
     public virtual void FixedUpdate()
     {
-        if (should_scroll)
-        {
+        //if (should_scroll)
+        //{
             OnActiveFixedUpdate();
-        }
+        //}
     }
     public void OnActiveFixedUpdate()
     {

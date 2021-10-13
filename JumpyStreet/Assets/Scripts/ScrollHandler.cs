@@ -17,6 +17,7 @@ public class ScrollHandler : MonoBehaviour
     void Update()
     {
         // If (!gameOver)
+        //print((Scrollable.should_scroll));
         if (Scrollable.should_scroll)
         {
             if (NumOfCycles < 30)
@@ -44,6 +45,7 @@ public class ScrollHandler : MonoBehaviour
         else
         {
             MoveSpeed = 0;
+            Scrollable.scrollSpeed = 0f;
         }
     }
 }
