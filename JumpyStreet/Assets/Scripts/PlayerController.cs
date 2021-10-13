@@ -1,6 +1,8 @@
-//using System.Collections;
+//using System;
+using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //public class PlayerController : Scrollable
 public class PlayerController : MonoBehaviour
@@ -18,9 +20,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerSensor rightSensor;
 
     [SerializeField] private bool isParented;
+    [SerializeField] private bool can_move;
 
     private void Awake()
     {
+        can_move = true;
         bounceTarget = transform.position;
     }
 
@@ -100,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D hit)
     {
-        if (!moving)
+        if (!moving && !Scrollable.should_scroll)
         {
             if (hit.tag == "Tile")
             {
@@ -109,6 +113,10 @@ public class PlayerController : MonoBehaviour
                 {
                     bounceTarget = new Vector2(bounceTarget.x,hit.transform.position.y);
                 }
+                if(hit.GetComponent<Tile>().TypeOfTile == TileType.Water) // change this later to check if not parented to log
+                {
+                    StartCoroutine(Death());
+                }
             }
             if (hit.tag == "MovingObj")
             {
@@ -116,6 +124,7 @@ public class PlayerController : MonoBehaviour
                 {
                     case SpawnObjectData.Car:
                         Debug.Log("Hit by car!");
+                        Death();
                         break;
                     case SpawnObjectData.Log:
                         //bounceTarget = new Vector2(bounceTarget.x + (hit.GetComponent<MovingObject>().moveSpeed * hit.GetComponent<MovingObject>().spawnDirMod), hit.transform.position.y);
@@ -162,7 +171,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            MovePlayer();
+            if (can_move)
+            {
+                MovePlayer();
+            }
         }
         //clamp bounceTarget to sides of screen
         if (bounceTarget.x > 8.5f)
@@ -183,5 +195,16 @@ public class PlayerController : MonoBehaviour
     private void ResetRotation()
     {
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+    }
+
+    private IEnumerator Death()
+    {
+        can_move = false;
+        Scrollable.should_scroll = false;
+        for (int i = 0; i < 30; i++)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        // return to Main Menu
     }
 }

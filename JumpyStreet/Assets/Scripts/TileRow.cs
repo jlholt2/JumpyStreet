@@ -21,7 +21,7 @@ public class TileRow : Scrollable
         {
             spawnCooldown--;
         }
-        else
+        else if(Scrollable.should_scroll)
         {
             SpawnObject();
         }

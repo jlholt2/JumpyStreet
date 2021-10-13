@@ -10,11 +10,14 @@ public class MovingObject : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 pos = transform.localPosition;
-        transform.localPosition = new Vector2(pos.x+(moveSpeed*spawnDirMod),pos.y);
-        if(transform.position.x > 12 || transform.position.x < -12)
+        if (Scrollable.should_scroll)
         {
-            Destroy(gameObject);
+            Vector2 pos = transform.localPosition;
+            transform.localPosition = new Vector2(pos.x + (moveSpeed * spawnDirMod), pos.y);
+            if (transform.position.x > 12 || transform.position.x < -12)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

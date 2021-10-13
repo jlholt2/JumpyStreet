@@ -11,6 +11,8 @@ public class Scrollable : MonoBehaviour
     public static int speedupCooldown = 60*10;
     public static int numOfCycles = 0;
 
+    public static bool should_scroll = true;
+
     //public virtual void Awake()
     //{
     //    OnActiveAwake();
@@ -32,7 +34,10 @@ public class Scrollable : MonoBehaviour
 
     public virtual void FixedUpdate()
     {
-        OnActiveFixedUpdate();
+        if (should_scroll)
+        {
+            OnActiveFixedUpdate();
+        }
     }
     public void OnActiveFixedUpdate()
     {
