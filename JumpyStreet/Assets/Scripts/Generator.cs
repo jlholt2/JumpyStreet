@@ -72,6 +72,7 @@ public class Generator : MonoBehaviour
         AddTileRowToList(newRow);
         newRow.AdjustAllTiles();
         newRow.movingObjPrefab = movingObjPrefab;
+        TimerScore.instance.AddScoreCount();
 
         // Increment currentRow by 1
         currentRow++;
