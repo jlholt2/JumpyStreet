@@ -11,6 +11,7 @@ public class ScrollHandler : MonoBehaviour
 
     private void Awake()
     {
+        Scrollable.should_scroll = true;
         Scrollable.scrollSpeed = 0f; Scrollable.speedupTimer = Scrollable.speedupCooldown; Scrollable.numOfCycles = 0;
     }
 
