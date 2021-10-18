@@ -22,8 +22,8 @@ public class MetaTileHolder : MonoBehaviour
             roadRow.tiles[i].tileSprite = roadSprite;
         }
         roadRow.spawnData = SpawnObjectData.Car;
-        roadRow.moveSpeed = new float[] { 0.05f, 0.1f, 0.25f };
-        roadRow.spawnRate = new int[] { 20, 30, 60 };
+        roadRow.moveSpeed = new float[] { 0.1f, 0.15f, 0.20f };
+        roadRow.spawnRate = new int[] { 30, 40, 60 };
 
         for (int i = 0; i < waterRow.tiles.Length; i++)
         {
