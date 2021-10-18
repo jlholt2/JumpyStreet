@@ -1694,6 +1694,49 @@ MonoBehaviour:
       moveSpeed:
       - 0
       spawnRate: 3c000000
+  - tileRows:
+    - tiles:
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 2
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 2
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 2
+      spawnDir: 2
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
   roadRow:
     tiles:
     - typeOfTile: 0
