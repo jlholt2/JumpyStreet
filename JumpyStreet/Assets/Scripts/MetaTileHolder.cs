@@ -22,8 +22,13 @@ public class MetaTileHolder : MonoBehaviour
             roadRow.tiles[i].tileSprite = roadSprite;
         }
         roadRow.spawnData = SpawnObjectData.Car;
+<<<<<<< Updated upstream
         roadRow.moveSpeed = new float[] { 0.1f, 0.25f, 0.5f };
         roadRow.spawnRate = new int[] { 20, 30, 60 };
+=======
+        roadRow.moveSpeed = new float[] { 0.05f, 0.1f, 0.25f };
+        roadRow.spawnRate = new int[] { 60, 40, 120, 80 };
+>>>>>>> Stashed changes
 
         for (int i = 0; i < waterRow.tiles.Length; i++)
         {
@@ -32,6 +37,6 @@ public class MetaTileHolder : MonoBehaviour
         }
         waterRow.spawnData = SpawnObjectData.Log;
         waterRow.moveSpeed = new float[] { 0.05f, 0.1f, 0.15f };
-        waterRow.spawnRate = new int[] { 6, 10, 12, 30 };
+        waterRow.spawnRate = new int[] { 60, 40 };
     }
 }

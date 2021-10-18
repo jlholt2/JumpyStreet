@@ -19,8 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerSensor leftSensor;
     [SerializeField] private PlayerSensor rightSensor;
 
-    [SerializeField] private bool isParented;
+    [SerializeField] private float logMovement;
     [SerializeField] private bool can_move;
+    [SerializeField] private bool on_water;
 
     private void Awake()
     {
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        //logMovement = 0f;
+        on_water = false;
         if (transform.position.x == bounceTarget.x && transform.position.y == bounceTarget.y)
         {
             moving = false;
@@ -42,10 +45,10 @@ public class PlayerController : MonoBehaviour
             {
                 if (upSensor.sensedTileType != TileType.Wall)
                 {
-                    bounceTarget = new Vector2(transform.position.x, transform.position.y + 1);
+                    bounceTarget = upSensor.transform.position;
                     if (bounceTarget.y > 5.5f)
                     {
-                        bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                        bounceTarget = transform.position;
                     }
                     moving = true;
                 }
@@ -55,10 +58,10 @@ public class PlayerController : MonoBehaviour
             {
                 if (downSensor.sensedTileType != TileType.Wall)
                 {
-                    bounceTarget = new Vector2(transform.position.x, transform.position.y - 1);
+                    bounceTarget = downSensor.transform.position;
                     if (bounceTarget.y < -5f)
                     {
-                        bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                        bounceTarget = transform.position;
                     }
                 }
                 moving = true;
@@ -69,7 +72,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (leftSensor.sensedTileType != TileType.Wall)
                 {
-                    bounceTarget = new Vector2(transform.position.x - 1, transform.position.y);
+                    bounceTarget = leftSensor.transform.position;
                     if (bounceTarget.x < -8.5f)
                     {
                         bounceTarget = new Vector2(-8.5f, transform.position.y);
@@ -83,7 +86,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (rightSensor.sensedTileType != TileType.Wall)
                 {
-                    bounceTarget = new Vector2(transform.position.x + 1, transform.position.y);
+                    bounceTarget = rightSensor.transform.position;
                     if (bounceTarget.x > 8.5f)
                     {
                         bounceTarget = new Vector2(8.5f, transform.position.y);
@@ -97,8 +100,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerSR.sprite = playerSprites[1];
-            isParented = false;
-            transform.SetParent(null);
+            //isParented = false;
+            //transform.SetParent(null);
         }
     }
 
@@ -115,7 +118,8 @@ public class PlayerController : MonoBehaviour
                 }
                 if(hit.GetComponent<Tile>().TypeOfTile == TileType.Water) // change this later to check if not parented to log
                 {
-                    StartCoroutine(Death());
+                    //StartCoroutine(Death());
+                    on_water = true;
                 }
             }
             if (hit.tag == "MovingObj")
@@ -128,11 +132,14 @@ public class PlayerController : MonoBehaviour
                         break;
                     case SpawnObjectData.Log:
                         //bounceTarget = new Vector2(bounceTarget.x + (hit.GetComponent<MovingObject>().moveSpeed * hit.GetComponent<MovingObject>().spawnDirMod), hit.transform.position.y);
-                        if (!transform.IsChildOf(hit.transform))
-                        {
-                            isParented = true;
-                            transform.SetParent(hit.transform);
-                        }
+                        //if (!transform.IsChildOf(hit.transform))
+                        //{
+                        //    isParented = true;
+                        //    transform.SetParent(hit.transform);
+                        //}
+                        Debug.Log("ON LOG");
+                        Debug.Log("Possible X Position change: "+transform.position.x+" to "+(transform.position.x + (hit.GetComponent<MovingObject>().moveSpeed * hit.GetComponent<MovingObject>().spawnDirMod)));
+                        logMovement = hit.GetComponent<MovingObject>().moveSpeed * hit.GetComponent<MovingObject>().spawnDirMod;
                         break;
                 }
             }
@@ -151,26 +158,28 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //when making this script a child of scrollable, add OnActiveFixedUpdate()
-        if (transform.parent == null)
-        {
-            isParented = false;
-        }
-        if (!isParented)
-        {
-            //OnActiveFixedUpdate();
-            //bounceTarget = new Vector2(bounceTarget.x, MathUtils.Round((bounceTarget.y - scrollSpeed), 3));
-            bounceTarget = new Vector2(bounceTarget.x, MathUtils.Round((bounceTarget.y - Scrollable.scrollSpeed), 3));
-        }
-        else
-        {
-        }
+        //if (transform.parent == null)
+        //{
+        //    isParented = false;
+        //}
+        //if (!isParented)
+        //{
+        //    //OnActiveFixedUpdate();
+        //    //bounceTarget = new Vector2(bounceTarget.x, MathUtils.Round((bounceTarget.y - scrollSpeed), 3));
+        //    //bounceTarget = new Vector2(bounceTarget.x, MathUtils.Round((bounceTarget.y - Scrollable.scrollSpeed), 3));
+        //}
+        //else if (!moving)
         if (!moving)
         {
-            bounceTarget = new Vector2(transform.position.x, transform.position.y);
+            if(logMovement != 0f)
+            {
+                transform.position = new Vector2(transform.position.x + logMovement, transform.position.y);
+            }
+            bounceTarget = transform.position;
         }
         else
         {
+            logMovement = 0f;
             if (can_move)
             {
                 MovePlayer();
@@ -185,6 +194,20 @@ public class PlayerController : MonoBehaviour
         {
             bounceTarget = new Vector2(-8.5f, transform.position.y);
         }
+<<<<<<< Updated upstream
+=======
+        if(transform.position.y <= -6)
+        {
+            StartCoroutine(Death());
+        }
+        if (on_water)
+        {
+            if(logMovement == 0f)
+            {
+                StartCoroutine(Death());
+            }
+        }
+>>>>>>> Stashed changes
     }
 
     private void MovePlayer()

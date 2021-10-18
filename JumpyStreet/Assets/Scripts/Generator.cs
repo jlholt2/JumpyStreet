@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
+    public static Generator generator;
+
     public MetaTile currentMetaTile;
     public int currentRow; // used to determine which row of the metatile should be generated. Counts up as a row is generated. When it reaches the current MetaTile's array length, should reset to 0 and set currentMetaTile to a different random MetaTile.
 
@@ -23,11 +25,21 @@ public class Generator : MonoBehaviour
     private List<TileRow> activeTileRows;
 
     [SerializeField] private GameObject movingObjPrefab;
+    public Sprite carSprite;
+    public Sprite logSprite;
 
     [SerializeField] private int roadCooldown; // Number of metaTile generations it takes after a road or river is generated before more roads or rivers can be dynamically generated, outside of those set in metaTileHolder.metaTiles
 
     private void Awake()
     {
+        if(generator == null)
+        {
+            generator = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
         activeTileRows = new List<TileRow>();
         metaTileHolder = gameObject.GetComponent<MetaTileHolder>();
         Application.targetFrameRate = 60;
@@ -108,24 +120,24 @@ public class Generator : MonoBehaviour
             TileRowData rowType = metaTileHolder.roadRow;
             MetaTile newMetaTile = new MetaTile();
             newMetaTile.tileRows = new TileRowData[Random.Range(1, 5)];
-            //if (Random.Range(0, 2) == 1)
-            //{
-            //    rowType = metaTileHolder.waterRow;
-            //    Debug.Log("Generating Water MetaTile with " + newMetaTile.tileRows.Length + " rows.");
-            //}
-            //else
-            //{
-                Debug.Log("Generating Road MetaTile with " + newMetaTile.tileRows.Length + " rows.");
-            //}
-            for (int i = 0; i < newMetaTile.tileRows.Length; i++)
+            if (Random.Range(0, 2) == 1)
             {
-                newMetaTile.tileRows[i] = rowType;
+                rowType = metaTileHolder.waterRow;
+                Debug.Log("Generating Water MetaTile with " + newMetaTile.tileRows.Length + " rows.");
             }
-            currentMetaTile = newMetaTile;
-            roadCooldown = Random.Range(1, 5);
-        }
-        else
-        {
+            else
+            {
+                Debug.Log("Generating Road MetaTile with " + newMetaTile.tileRows.Length + " rows.");
+            }
+            for (int i = 0; i < newMetaTile.tileRows.Length; i++)
+                {
+                    newMetaTile.tileRows[i] = rowType;
+                }
+                currentMetaTile = newMetaTile;
+                roadCooldown = Random.Range(1, 5);
+            }
+            else
+            {
             int randValue = Random.Range(0, metaTileHolder.metaTiles.Length);
             Debug.Log("Loading MetaTile at value " + randValue + ".");
             currentMetaTile = metaTileHolder.metaTiles[randValue];
