@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helpScreen: {fileID: 2090223043}
-  sceneName: SampleScene
+  sceneName: GameScene
 --- !u!4 &1830328229
 Transform:
   m_ObjectHideFlags: 0
