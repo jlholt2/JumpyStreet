@@ -1702,8 +1702,8 @@ MonoBehaviour:
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 1
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
-      - typeOfTile: 1
-        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: -4758428708751416214, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 2
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 2
@@ -1722,6 +1722,8 @@ MonoBehaviour:
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 1
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: -4758428708751416214, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 1
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 1
@@ -1730,10 +1732,8 @@ MonoBehaviour:
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 1
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
-      - typeOfTile: 1
-        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
-      spawnData: 2
-      spawnDir: 2
+      spawnData: 0
+      spawnDir: 0
       moveSpeed:
       - 0
       spawnRate: 3c000000
