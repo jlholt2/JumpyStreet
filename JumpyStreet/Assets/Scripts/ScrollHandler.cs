@@ -25,9 +25,7 @@ public class ScrollHandler : MonoBehaviour
             {
                 if (Scrollable.speedupTimer > 0)
                 {
-                    Scrollable.speedupTimer--;
-                    Scrollable.speedupTimer--;
-                    Scrollable.speedupTimer--;
+                    Scrollable.speedupTimer-=6;
                 }
                 else
                 {

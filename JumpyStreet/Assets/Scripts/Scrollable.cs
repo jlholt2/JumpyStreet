@@ -41,6 +41,6 @@ public class Scrollable : MonoBehaviour
     }
     public void OnActiveFixedUpdate()
     {
-        transform.position = new Vector2(transform.position.x, MathUtils.Round((transform.position.y - scrollSpeed),3));
+        transform.position = new Vector2(transform.position.x, MathUtils.Round((transform.position.y - scrollSpeed), 3));
     }
 }

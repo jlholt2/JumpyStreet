@@ -56,7 +56,6 @@ public class TileRow : Scrollable
     {
         // get float value of y position of first TileRow in activeTileRows
         float firstTileX = tiles[0].transform.position.x;
-        //Debug.Log(firstTileX);
 
         for (int i = 1; i < tiles.Length; i++)
         {
@@ -83,7 +82,6 @@ public class TileRow : Scrollable
         {
             spawnDir = rowData.spawnDir;
         }
-        //Debug.Log("Spawn Dir is " + spawnDir);
         moveSpeed = rowData.moveSpeed[Random.Range(0, rowData.moveSpeed.Length)];
         spawnRate = rowData.spawnRate;
         spawnCooldown = spawnRate[Random.Range(0, spawnRate.Length)];
@@ -93,7 +91,6 @@ public class TileRow : Scrollable
     {
         if (spawnData != SpawnObjectData.None)
         {
-            //Debug.Log("Spawning moving object.");
             // Instantiate spawnedObject
             GameObject spawnedObject = Instantiate(movingObjPrefab, transform.position, Quaternion.identity);
             MovingObject movingObj = spawnedObject.GetComponent<MovingObject>();
@@ -107,6 +104,7 @@ public class TileRow : Scrollable
                     break;
                 case SpawnObjectData.Log:
                     movingObj.objectType = SpawnObjectData.Log;
+                    movingObj.GetComponent<SpriteRenderer>().sprite = Generator.generator.logSprite;
                     break;
             }
             // Make spawnedObject's parent this transform
@@ -118,11 +116,12 @@ public class TileRow : Scrollable
             {
                 case SpawnDir.Left:
                     movingObj.spawnDirMod = -1;
-                    spawnedObject.transform.localPosition = new Vector2(19f,0);
+                    spawnedObject.transform.localPosition = new Vector2(19f, 0f);
                     break;
                 case SpawnDir.Right:
                     movingObj.spawnDirMod = 1;
                     spawnedObject.transform.localPosition = new Vector2(-1f, 0);
+                    spawnedObject.transform.localScale = new Vector2(-1f, 1f);
                     break;
                 default:
                     Debug.Log("Uh oh! Something went wrong when spawning in a spawnable object ...");

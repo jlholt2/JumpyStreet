@@ -1185,6 +1185,7 @@ MonoBehaviour:
       spawnRate: 3c000000
   currentRow: 0
   movingObjPrefab: {fileID: 222702128253815029, guid: f999e39a377924843b12e629cbf675ac, type: 3}
+  logSprite: {fileID: -7824540975354739932, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
   roadCooldown: 0
 --- !u!4 &1022364996
 Transform:
