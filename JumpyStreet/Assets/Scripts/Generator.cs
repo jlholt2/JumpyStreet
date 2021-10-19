@@ -28,8 +28,6 @@ public class Generator : MonoBehaviour
     public Sprite carSprite;
     public Sprite logSprite;
 
-    public Sprite logSprite;
-
     [SerializeField] private int roadCooldown; // Number of metaTile generations it takes after a road or river is generated before more roads or rivers can be dynamically generated, outside of those set in metaTileHolder.metaTiles
 
     private void Awake()

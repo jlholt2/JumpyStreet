@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            logMovement = 0f;
+            log_movement = 0f;
             if (can_move)
             {
                 MovePlayer();
@@ -171,12 +171,11 @@ public class PlayerController : MonoBehaviour
         }
         if (on_water)
         {
-            if(logMovement == 0f)
+            if(log_movement == 0f)
             {
                 StartCoroutine(Death());
             }
         }
-        log_movement = 0f;
     }
 
     private void MovePlayer()
