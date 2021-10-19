@@ -94,6 +94,13 @@ public class TileRow : Scrollable
             // Instantiate spawnedObject
             GameObject spawnedObject = Instantiate(movingObjPrefab, transform.position, Quaternion.identity);
             MovingObject movingObj = spawnedObject.GetComponent<MovingObject>();
+            int direction = 1;
+            if(spawnDir == SpawnDir.Right)
+            {
+                direction = -1;
+            }
+            movingObj.transform.localScale = new Vector2(direction, 1f);
+            SpriteRenderer movingSR = movingObj.GetComponent<SpriteRenderer>();
             switch (spawnData)
             {
                 default:

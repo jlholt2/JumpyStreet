@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
                     bounceTarget = upSensor.transform.position;
                     if (bounceTarget.y > 5.5f)
                     {
-                        bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                        bounceTarget = transform.position;
                     }
                     moving = true;
                 }
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
                     bounceTarget = downSensor.transform.position;
                     if (bounceTarget.y < -5f)
                     {
-                        bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                        bounceTarget = transform.position;
                     }
                 }
                 moving = true;
@@ -150,6 +150,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            logMovement = 0f;
             if (can_move)
             {
                 MovePlayer();
@@ -170,7 +171,7 @@ public class PlayerController : MonoBehaviour
         }
         if (on_water)
         {
-            if(log_movement == 0f)
+            if(logMovement == 0f)
             {
                 StartCoroutine(Death());
             }

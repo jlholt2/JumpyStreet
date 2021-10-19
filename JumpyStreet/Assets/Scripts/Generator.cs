@@ -25,6 +25,8 @@ public class Generator : MonoBehaviour
     private List<TileRow> activeTileRows;
 
     [SerializeField] private GameObject movingObjPrefab;
+    public Sprite carSprite;
+    public Sprite logSprite;
 
     public Sprite logSprite;
 
@@ -123,14 +125,14 @@ public class Generator : MonoBehaviour
                 Debug.Log("Generating Road MetaTile with " + newMetaTile.tileRows.Length + " rows.");
             }
             for (int i = 0; i < newMetaTile.tileRows.Length; i++)
-            {
-                newMetaTile.tileRows[i] = rowType;
+                {
+                    newMetaTile.tileRows[i] = rowType;
+                }
+                currentMetaTile = newMetaTile;
+                roadCooldown = Random.Range(1, 5);
             }
-            currentMetaTile = newMetaTile;
-            roadCooldown = Random.Range(1, 5);
-        }
-        else
-        {
+            else
+            {
             int randValue = Random.Range(0, metaTileHolder.metaTiles.Length);
             Debug.Log("Loading MetaTile at value " + randValue + ".");
             currentMetaTile = metaTileHolder.metaTiles[randValue];

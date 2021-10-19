@@ -23,7 +23,7 @@ public class MetaTileHolder : MonoBehaviour
         }
         roadRow.spawnData = SpawnObjectData.Car;
         roadRow.moveSpeed = new float[] { 0.05f, 0.1f, 0.25f };
-        roadRow.spawnRate = new int[] { 30, 60, 120 };
+        roadRow.spawnRate = new int[] { 60, 40, 120, 80 };
 
         for (int i = 0; i < waterRow.tiles.Length; i++)
         {
