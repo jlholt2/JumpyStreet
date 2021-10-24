@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tile
   - MovingObj
+  - Fruit
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Moving Objects
     uniqueID: 2753775763
+    locked: 0
+  - name: Fruit
+    uniqueID: 2547123335
     locked: 0
   - name: Player
     uniqueID: 1135565829

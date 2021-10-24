@@ -17,9 +17,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerSensor downSensor;
     [SerializeField] private PlayerSensor leftSensor;
     [SerializeField] private PlayerSensor rightSensor;
+    [SerializeField] private PlayerSensor centralSensor;
 
     [SerializeField] private bool can_move;
     [SerializeField] private bool on_water;
+    [SerializeField] private bool moving_horiz;
     [SerializeField] private float log_movement = 0.0f;
 
     private void Awake()
@@ -76,6 +78,10 @@ public class PlayerController : MonoBehaviour
                     }
                     moving = true;
                 }
+                else
+                {
+                    bounceTarget = centralSensor.sensedTile.transform.position;
+                }
                 ResetRotation();
                 transform.Rotate(0f, 0f, 90f);
             }
@@ -90,8 +96,20 @@ public class PlayerController : MonoBehaviour
                     }
                     moving = true;
                 }
+                else
+                {
+                    bounceTarget = centralSensor.sensedTile.transform.position;
+                }
                 ResetRotation();
                 transform.Rotate(0f, 0f, -90f);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                moving_horiz = true;
+            }
+            else
+            {
+                moving_horiz = false;
             }
         }
         else
@@ -110,6 +128,11 @@ public class PlayerController : MonoBehaviour
                 if (tileDist < 0.5f && tileDist > 0f)
                 {
                     bounceTarget = new Vector2(bounceTarget.x,hit.transform.position.y);
+                    if (moving_horiz)
+                    {
+                        bounceTarget = new Vector2(hit.transform.position.x, bounceTarget.y);
+                        moving_horiz = false;
+                    }
                 }
                 if(hit.GetComponent<Tile>().TypeOfTile == TileType.Water)
                 {
@@ -131,6 +154,28 @@ public class PlayerController : MonoBehaviour
                         }
                         break;
                 }
+            }
+            if (hit.tag == "Fruit")
+            {
+                Fruit fruit = hit.GetComponent<Fruit>();
+                int scoreGain = 0;
+                switch (fruit.fruitType)
+                {
+                    case FruitType.Banana:
+                        scoreGain = 2;
+                        break;
+                    case FruitType.Cherry:
+                        scoreGain = 5;
+                        break;
+                    case FruitType.Orange:
+                        scoreGain = 10;
+                        break;
+                    default:
+                        Debug.Log("ERROR: Unrecognized Fruit Type! Did something go wrong?");
+                        break;
+                }
+                StartCoroutine(TimerScore.instance.AddScoreCount(scoreGain));
+                Destroy(hit.gameObject);
             }
         }
     }

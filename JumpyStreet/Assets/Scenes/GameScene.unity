@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensedTileType: 0
+  sensedTile: {fileID: 0}
 --- !u!61 &40465244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -302,8 +303,11 @@ MonoBehaviour:
   downSensor: {fileID: 1539693895}
   leftSensor: {fileID: 1405295487}
   rightSensor: {fileID: 40465243}
-  isParented: 0
+  centralSensor: {fileID: 685388470}
   can_move: 0
+  on_water: 0
+  moving_horiz: 0
+  log_movement: 0
 --- !u!61 &64880498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -390,7 +394,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1135565829
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1913860602721141779, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -608,6 +612,7 @@ Transform:
   - {fileID: 1539693894}
   - {fileID: 1405295486}
   - {fileID: 40465242}
+  - {fileID: 685388469}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -645,6 +650,78 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!1 &685388468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685388469}
+  - component: {fileID: 685388471}
+  - component: {fileID: 685388470}
+  m_Layer: 0
+  m_Name: CentralSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &685388469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685388468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 588160304}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &685388470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685388468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53766bf41a80d04baf9ba3f36acae7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensedTileType: 0
+  sensedTile: {fileID: 0}
+--- !u!61 &685388471
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685388468}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &874028255
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensedTileType: 0
+  sensedTile: {fileID: 0}
 --- !u!61 &955960824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1185,6 +1263,8 @@ MonoBehaviour:
       spawnRate: 3c000000
   currentRow: 0
   movingObjPrefab: {fileID: 222702128253815029, guid: f999e39a377924843b12e629cbf675ac, type: 3}
+  fruitPrefab: {fileID: 6755223893994681343, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+  carSprite: {fileID: -4569824520835217933, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
   logSprite: {fileID: -7824540975354739932, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
   roadCooldown: 0
 --- !u!4 &1022364996
@@ -1931,6 +2011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensedTileType: 0
+  sensedTile: {fileID: 0}
 --- !u!61 &1405295488
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2002,6 +2083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensedTileType: 0
+  sensedTile: {fileID: 0}
 --- !u!61 &1539693896
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2268,3 +2350,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f999e39a377924843b12e629cbf675ac, type: 3}
+--- !u!1001 &8484220736371060369
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360790894189080753, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6755223893994681343, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
+      propertyPath: m_Name
+      value: Fruit
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}

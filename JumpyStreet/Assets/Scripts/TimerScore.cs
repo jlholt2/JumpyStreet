@@ -26,4 +26,16 @@ public class TimerScore : MonoBehaviour
         score++;
         scoreText.text = score.ToString();
     }
+
+    public IEnumerator AddScoreCount(int scoreToAdd)
+    {
+        for (int i = 0; i < scoreToAdd; i++)
+        {
+            AddScoreCount();
+            for (int cooldown = 0; cooldown < 3; cooldown++)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        }
+    }
 }

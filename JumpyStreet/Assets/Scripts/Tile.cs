@@ -12,9 +12,24 @@ public class Tile : MonoBehaviour
     [SerializeField] private TileType typeOfTile = 0;
     public Sprite tileSprite;
 
+    public void SpawnFruit()
+    {
+        GameObject fruitGO = Instantiate(Generator.generator.fruitPrefab, transform);
+        fruitGO.transform.localPosition = Vector2.zero;
+        Fruit fruit = fruitGO.GetComponent<Fruit>();
+        fruit.DetermineFruitType();
+    }
+
     public void CreateTileFromData(TileData data)
     {
         typeOfTile = data.typeOfTile;
         tileSprite = data.tileSprite;
+        if (typeOfTile == 0)
+        {
+            if (Random.Range(0, 25) >= 24)
+            {
+                SpawnFruit();
+            }
+        }
     }
 }

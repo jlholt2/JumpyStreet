@@ -25,6 +25,7 @@ public class Generator : MonoBehaviour
     private List<TileRow> activeTileRows;
 
     [SerializeField] private GameObject movingObjPrefab;
+    public GameObject fruitPrefab;
     public Sprite carSprite;
     public Sprite logSprite;
 
