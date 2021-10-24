@@ -1,6 +1,7 @@
 //using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScrollHandler : MonoBehaviour
 {
@@ -12,20 +13,25 @@ public class ScrollHandler : MonoBehaviour
     private void Awake()
     {
         Scrollable.should_scroll = true;
-        Scrollable.scrollSpeed = 0f; Scrollable.speedupTimer = Scrollable.speedupCooldown; Scrollable.numOfCycles = 0;
+        if(SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Scrollable.scrollSpeed = 0.022f; Scrollable.speedupTimer = Scrollable.speedupCooldown; Scrollable.numOfCycles = 30;
+        }
+        else
+        {
+            Scrollable.scrollSpeed = 0f; Scrollable.speedupTimer = Scrollable.speedupCooldown; Scrollable.numOfCycles = 0;
+        }
     }
 
     void Update()
     {
-        // If (!gameOver)
-        //print((Scrollable.should_scroll));
         if (Scrollable.should_scroll)
         {
             if (NumOfCycles < 30)
             {
                 if (Scrollable.speedupTimer > 0)
                 {
-                    Scrollable.speedupTimer-=6;
+                    Scrollable.speedupTimer -= 6;
                 }
                 else
                 {

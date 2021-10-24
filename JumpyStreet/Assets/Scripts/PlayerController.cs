@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool on_water;
     [SerializeField] private bool moving_horiz;
     [SerializeField] private float log_movement = 0.0f;
+    [SerializeField] private int movement_cooldown = 0;
 
     private void Awake()
     {
@@ -40,81 +41,89 @@ public class PlayerController : MonoBehaviour
         {
             playerSR.sprite = playerSprites[0];
             transform.position = bounceTarget;
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if(movement_cooldown > 0)
             {
-                if (upSensor.sensedTileType != TileType.Wall)
-                {
-                    bounceTarget = upSensor.transform.position;
-                    if (bounceTarget.y > 5.5f)
-                    {
-                        bounceTarget = new Vector2(transform.position.x, transform.position.y);
-                    }
-                    moving = true;
-                }
-                ResetRotation();
-            }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (downSensor.sensedTileType != TileType.Wall)
-                {
-                    bounceTarget = downSensor.transform.position;
-                    if (bounceTarget.y < -5f)
-                    {
-                        bounceTarget = new Vector2(transform.position.x, transform.position.y);
-                    }
-                }
-                moving = true;
-                ResetRotation();
-                transform.Rotate(0f, 0f, 180f);
-            }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                if (leftSensor.sensedTileType != TileType.Wall)
-                {
-                    bounceTarget = leftSensor.transform.position;
-                    if (bounceTarget.x < -8.5f)
-                    {
-                        bounceTarget = new Vector2(-8.5f, transform.position.y);
-                    }
-                    moving = true;
-                }
-                else
-                {
-                    bounceTarget = centralSensor.sensedTile.transform.position;
-                }
-                ResetRotation();
-                transform.Rotate(0f, 0f, 90f);
-            }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                if (rightSensor.sensedTileType != TileType.Wall)
-                {
-                    bounceTarget = rightSensor.transform.position;
-                    if (bounceTarget.x > 8.5f)
-                    {
-                        bounceTarget = new Vector2(8.5f, transform.position.y);
-                    }
-                    moving = true;
-                }
-                else
-                {
-                    bounceTarget = centralSensor.sensedTile.transform.position;
-                }
-                ResetRotation();
-                transform.Rotate(0f, 0f, -90f);
-            }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                moving_horiz = true;
+                movement_cooldown--;
             }
             else
             {
-                moving_horiz = false;
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    if (upSensor.sensedTileType != TileType.Wall)
+                    {
+                        bounceTarget = upSensor.transform.position;
+                        if (bounceTarget.y > 5.5f)
+                        {
+                            bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                        }
+                        moving = true;
+                    }
+                    ResetRotation();
+                }
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    if (downSensor.sensedTileType != TileType.Wall)
+                    {
+                        bounceTarget = downSensor.transform.position;
+                        if (bounceTarget.y < -5f)
+                        {
+                            bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                        }
+                    }
+                    moving = true;
+                    ResetRotation();
+                    transform.Rotate(0f, 0f, 180f);
+                }
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    if (leftSensor.sensedTileType != TileType.Wall)
+                    {
+                        bounceTarget = leftSensor.transform.position;
+                        if (bounceTarget.x < -8.5f)
+                        {
+                            bounceTarget = new Vector2(-8.5f, transform.position.y);
+                        }
+                        moving = true;
+                    }
+                    else
+                    {
+                        bounceTarget = centralSensor.sensedTile.transform.position;
+                    }
+                    ResetRotation();
+                    transform.Rotate(0f, 0f, 90f);
+                }
+                if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    if (rightSensor.sensedTileType != TileType.Wall)
+                    {
+                        bounceTarget = rightSensor.transform.position;
+                        if (bounceTarget.x > 8.5f)
+                        {
+                            bounceTarget = new Vector2(8.5f, transform.position.y);
+                        }
+                        moving = true;
+                    }
+                    else
+                    {
+                        bounceTarget = centralSensor.sensedTile.transform.position;
+                    }
+                    ResetRotation();
+                    transform.Rotate(0f, 0f, -90f);
+                }
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    moving_horiz = true;
+                }
+                else
+                {
+                    moving_horiz = false;
+                }
             }
         }
         else
         {
             playerSR.sprite = playerSprites[1];
+            movement_cooldown = 2;
         }
     }
 
