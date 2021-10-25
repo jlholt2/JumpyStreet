@@ -10,6 +10,7 @@ public class TimerScore : MonoBehaviour
     private int score = -15;
     private static int highScore = 0;
     public static TimerScore instance;
+    [SerializeField] private AudioSource scoreBlipSound;
 
     void Awake()
     {
@@ -40,6 +41,7 @@ public class TimerScore : MonoBehaviour
         if(highScoreText == null)
         {
             score++;
+            scoreBlipSound.Play();
             scoreText.text = score.ToString();
         }
     }

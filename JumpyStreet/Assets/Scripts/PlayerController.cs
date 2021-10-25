@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int movement_cooldown = 0;
 
     [SerializeField] private AudioSource jumpSound;
+    [SerializeField] private AudioSource deathSound;
     [SerializeField] private Text deathText;
     [SerializeField] private string deathMessage = "ded";
 
@@ -281,6 +282,7 @@ public class PlayerController : MonoBehaviour
         can_move = false;
         Scrollable.should_scroll = false;
         TimerScore.instance.SaveHighScore();
+        PlayDeathSound();
         for (int i = 0; i < 60*5; i++)
         {
             yield return new WaitForEndOfFrame();
@@ -292,5 +294,10 @@ public class PlayerController : MonoBehaviour
     private void PlayJumpSound()
     {
         jumpSound.Play();
+    }
+
+    private void PlayDeathSound()
+    {
+        deathSound.Play();
     }
 }
