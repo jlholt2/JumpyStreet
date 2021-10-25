@@ -252,6 +252,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Death Event!");
         can_move = false;
         Scrollable.should_scroll = false;
+        TimerScore.instance.SaveHighScore();
         for (int i = 0; i < 60*5; i++)
         {
             yield return new WaitForEndOfFrame();

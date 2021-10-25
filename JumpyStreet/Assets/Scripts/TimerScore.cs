@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class TimerScore : MonoBehaviour
 {
     public Text scoreText;
+    public Text highScoreText;
     private int score = -15;
+    private static int highScore = 0;
     public static TimerScore instance;
 
     void Awake()
@@ -19,12 +21,27 @@ public class TimerScore : MonoBehaviour
         {
             Destroy(this);
         }
+        if(highScoreText != null)
+        {
+            if (PlayerPrefs.HasKey("highScore"))
+            {
+                highScore = PlayerPrefs.GetInt("highScore");
+            }
+            else
+            {
+                PlayerPrefs.SetInt("highScore", highScore);
+            }
+            highScoreText.text = "High Score: " + highScore;
+        }
     }
 
     public void AddScoreCount()
     {
-        score++;
-        scoreText.text = score.ToString();
+        if(highScoreText == null)
+        {
+            score++;
+            scoreText.text = score.ToString();
+        }
     }
 
     public IEnumerator AddScoreCount(int scoreToAdd)
@@ -37,5 +54,11 @@ public class TimerScore : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
+    }
+    public void SaveHighScore()
+    {
+        if (score > highScore) highScore = score;
+        PlayerPrefs.SetInt("highScore", highScore);
+        PlayerPrefs.Save();
     }
 }
