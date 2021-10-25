@@ -26,13 +26,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float log_movement = 0.0f;
     [SerializeField] private int movement_cooldown = 0;
 
-<<<<<<< Updated upstream
-=======
     [SerializeField] private AudioSource jumpSound;
     [SerializeField] private Text deathText;
     [SerializeField] private string deathMessage = "ded";
 
->>>>>>> Stashed changes
     private void Awake()
     {
         deathText.gameObject.SetActive(false);

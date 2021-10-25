@@ -308,13 +308,10 @@ MonoBehaviour:
   on_water: 0
   moving_horiz: 0
   log_movement: 0
-<<<<<<< Updated upstream
-=======
   movement_cooldown: 0
   jumpSound: {fileID: 64880502}
   deathText: {fileID: 456177334}
   deathMessage: ded
->>>>>>> Stashed changes
 --- !u!61 &64880498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -428,8 +425,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!82 &64880502
 AudioSource:
   m_ObjectHideFlags: 0
@@ -732,7 +727,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456177332}
   m_CullTransparentMesh: 1
->>>>>>> Stashed changes
 --- !u!1 &485511992
 GameObject:
   m_ObjectHideFlags: 0
