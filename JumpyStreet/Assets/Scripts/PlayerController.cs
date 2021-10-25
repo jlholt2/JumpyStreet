@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float log_movement = 0.0f;
     [SerializeField] private int movement_cooldown = 0;
 
+    [SerializeField] private AudioSource jumpSound;
+
     private void Awake()
     {
         can_move = true;
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
                         moving = true;
                     }
                     ResetRotation();
+                    PlayJumpSound();
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
@@ -72,6 +75,7 @@ public class PlayerController : MonoBehaviour
                     }
                     moving = true;
                     ResetRotation();
+                    PlayJumpSound();
                     transform.Rotate(0f, 0f, 180f);
                 }
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -90,6 +94,7 @@ public class PlayerController : MonoBehaviour
                         bounceTarget = centralSensor.sensedTile.transform.position;
                     }
                     ResetRotation();
+                    PlayJumpSound();
                     transform.Rotate(0f, 0f, 90f);
                 }
                 if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -108,6 +113,7 @@ public class PlayerController : MonoBehaviour
                         bounceTarget = centralSensor.sensedTile.transform.position;
                     }
                     ResetRotation();
+                    PlayJumpSound();
                     transform.Rotate(0f, 0f, -90f);
                 }
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
@@ -252,5 +258,10 @@ public class PlayerController : MonoBehaviour
         }
         // return to Main Menu
         SceneManager.LoadScene("MainMenu");
+    }
+
+    private void PlayJumpSound()
+    {
+        jumpSound.Play();
     }
 }
