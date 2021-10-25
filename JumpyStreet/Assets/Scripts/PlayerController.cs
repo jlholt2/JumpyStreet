@@ -3,6 +3,7 @@ using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,9 +27,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int movement_cooldown = 0;
 
     [SerializeField] private AudioSource jumpSound;
+    [SerializeField] private Text deathText;
+    [SerializeField] private string deathMessage = "ded";
 
     private void Awake()
     {
+        deathText.gameObject.SetActive(false);
         can_move = true;
         bounceTarget = transform.position;
     }
@@ -51,6 +55,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
+                    RecenterPlayerToTile();
                     if (upSensor.sensedTileType != TileType.Wall)
                     {
                         bounceTarget = upSensor.transform.position;
@@ -65,6 +70,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
+                    RecenterPlayerToTile();
                     if (downSensor.sensedTileType != TileType.Wall)
                     {
                         bounceTarget = downSensor.transform.position;
@@ -80,6 +86,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
+                    RecenterPlayerToTile();
                     if (leftSensor.sensedTileType != TileType.Wall)
                     {
                         bounceTarget = leftSensor.transform.position;
@@ -89,16 +96,17 @@ public class PlayerController : MonoBehaviour
                         }
                         moving = true;
                     }
-                    else
-                    {
-                        bounceTarget = centralSensor.sensedTile.transform.position;
-                    }
+                    //else
+                    //{
+                    //    RecenterPlayerToTile();
+                    //}
                     ResetRotation();
                     PlayJumpSound();
                     transform.Rotate(0f, 0f, 90f);
                 }
                 if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
+                    RecenterPlayerToTile();
                     if (rightSensor.sensedTileType != TileType.Wall)
                     {
                         bounceTarget = rightSensor.transform.position;
@@ -108,10 +116,10 @@ public class PlayerController : MonoBehaviour
                         }
                         moving = true;
                     }
-                    else
-                    {
-                        bounceTarget = centralSensor.sensedTile.transform.position;
-                    }
+                    //else
+                    //{
+                    //    RecenterPlayerToTile();
+                    //}
                     ResetRotation();
                     PlayJumpSound();
                     transform.Rotate(0f, 0f, -90f);
@@ -160,6 +168,7 @@ public class PlayerController : MonoBehaviour
                 {
                     case SpawnObjectData.Car:
                         Debug.Log("Hit by car!");
+                        deathMessage = "SQUISH";
                         StartCoroutine(Death());
                         break;
                     case SpawnObjectData.Log:
@@ -195,6 +204,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void RecenterPlayerToTile()
+    {
+        if(log_movement != 0f)
+        {
+            bounceTarget = centralSensor.sensedTile.transform.position;
+        }
+    }
+
     private void FixedUpdate()
     {
         //when making this script a child of scrollable, add OnActiveFixedUpdate()
@@ -210,6 +227,7 @@ public class PlayerController : MonoBehaviour
         {
             if (can_move)
             {
+                UpdateBounceTargetAccordingToScroll();
                 MovePlayer();
             }
         }
@@ -224,17 +242,24 @@ public class PlayerController : MonoBehaviour
         }
         if(transform.position.y <= -6)
         {
+            deathMessage = "TOO SLOW";
             StartCoroutine(Death());
         }
         if (on_water)
         {
             if(log_movement == 0f)
             {
+                deathMessage = "SPLASH";
                 StartCoroutine(Death());
             }
         }
         on_water = false;
         log_movement = 0f;
+    }
+
+    private void UpdateBounceTargetAccordingToScroll()
+    {
+        bounceTarget = new Vector2(bounceTarget.x, bounceTarget.y - Scrollable.scrollSpeed);
     }
 
     private void MovePlayer()
@@ -249,7 +274,10 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Death()
     {
+        RecenterPlayerToTile();
         Debug.Log("Death Event!");
+        deathText.text = deathMessage;
+        deathText.gameObject.SetActive(true);
         can_move = false;
         Scrollable.should_scroll = false;
         TimerScore.instance.SaveHighScore();
