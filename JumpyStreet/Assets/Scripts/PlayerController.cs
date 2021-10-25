@@ -75,10 +75,10 @@ public class PlayerController : MonoBehaviour
                     if (downSensor.sensedTileType != TileType.Wall)
                     {
                         bounceTarget = downSensor.transform.position;
-                        if (bounceTarget.y < -5f)
-                        {
-                            bounceTarget = new Vector2(transform.position.x, transform.position.y);
-                        }
+                        //if (bounceTarget.y < -5f)
+                        //{
+                        //    bounceTarget = new Vector2(transform.position.x, transform.position.y);
+                        //}
                     }
                     moving = true;
                     ResetRotation();
@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour
         {
             bounceTarget = new Vector2(-8.5f, transform.position.y);
         }
-        if(transform.position.y <= -6)
+        if(transform.position.y <= -6 && Scrollable.should_scroll)
         {
             deathMessage = "TOO SLOW";
             StartCoroutine(Death());
