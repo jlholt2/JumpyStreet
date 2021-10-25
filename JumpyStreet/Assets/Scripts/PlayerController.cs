@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
             {
                 movement_cooldown--;
             }
-            else
+            else if(Scrollable.should_scroll)
             {
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {

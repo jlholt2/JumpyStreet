@@ -47,7 +47,6 @@ public class TileRow : Scrollable
             tileGO.tag = "Tile";
             tile.transform.localPosition = new Vector2(i,0);
             tileSR.sprite = tile.tileSprite;
-            // NOTE: Need to set sorting layer for tileSR to "Tiles"
             tiles[i] = tile;
         }
     }
@@ -63,7 +62,7 @@ public class TileRow : Scrollable
         }
     }
 
-    public void SetSpawnData(TileRowData rowData)
+    public void SetSpawnData(TileRowData rowData, float prevMoveSpeed, Generator gen)
     {
         spawnData = rowData.spawnData;
         if(rowData.spawnDir == SpawnDir.Random)
@@ -82,7 +81,12 @@ public class TileRow : Scrollable
         {
             spawnDir = rowData.spawnDir;
         }
-        moveSpeed = rowData.moveSpeed[Random.Range(0, rowData.moveSpeed.Length)];
+        //int cycles = 0;
+        do
+        {
+            moveSpeed = rowData.moveSpeed[Random.Range(0, rowData.moveSpeed.Length)];
+            //cycles++;
+        } while (moveSpeed == prevMoveSpeed /*&& cycles < 20*/ && rowData.moveSpeed.Length > 1);
         spawnRate = rowData.spawnRate;
         spawnCooldown = spawnRate[Random.Range(0, spawnRate.Length)];
     }

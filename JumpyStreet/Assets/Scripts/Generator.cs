@@ -14,6 +14,7 @@ public class Generator : MonoBehaviour
 
     public static bool generateRow;
     public static float yOffset = 0f;
+    public float prevMoveSpeed = 0f;
 
     //[SerializeField] private float YOffset;
     //[SerializeField] private float prevFrameMoveSpeed;
@@ -72,7 +73,7 @@ public class Generator : MonoBehaviour
         TileRow newRow = newRowGO.AddComponent(typeof(TileRow)) as TileRow;
         DestroyOnBottom destroyRow = newRowGO.AddComponent(typeof(DestroyOnBottom)) as DestroyOnBottom;
         newRow.SetTilesInRow(currentMetaTile.tileRows[currentRow].tiles);
-        newRow.SetSpawnData(currentMetaTile.tileRows[currentRow]);
+        newRow.SetSpawnData(currentMetaTile.tileRows[currentRow], prevMoveSpeed, this);
         lastCreatedRow = newRow;
         AddTileRowToList(newRow);
         newRow.AdjustAllTiles();
