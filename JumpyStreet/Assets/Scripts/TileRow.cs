@@ -86,7 +86,8 @@ public class TileRow : Scrollable
         {
             moveSpeed = rowData.moveSpeed[Random.Range(0, rowData.moveSpeed.Length)];
             //cycles++;
-        } while (moveSpeed == prevMoveSpeed /*&& cycles < 20*/ && rowData.moveSpeed.Length > 1);
+        } while (moveSpeed == prevMoveSpeed /*&& cycles < 20*/ && rowData.moveSpeed.Length > 1); // repeats the moveSpeed set until it does not match the moveSpeed of the previously generated row, to avoid impassable rivers. The Length check is to avoid a crash in case a row only has one possible move speed in its data
+        Generator.generator.prevMoveSpeed = moveSpeed;
         spawnRate = rowData.spawnRate;
         spawnCooldown = spawnRate[Random.Range(0, spawnRate.Length)];
     }
