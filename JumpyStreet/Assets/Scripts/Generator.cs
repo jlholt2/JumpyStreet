@@ -117,14 +117,15 @@ public class Generator : MonoBehaviour
         {
             TileRowData rowType = metaTileHolder.roadRow;
             MetaTile newMetaTile = new MetaTile();
-            newMetaTile.tileRows = new TileRowData[Random.Range(1, 5)];
             if (Random.Range(0, 2) == 1)
             {
                 rowType = metaTileHolder.waterRow;
+                newMetaTile.tileRows = new TileRowData[Random.Range(1, 3)];
                 Debug.Log("Generating Water MetaTile with " + newMetaTile.tileRows.Length + " rows.");
             }
             else
             {
+                newMetaTile.tileRows = new TileRowData[Random.Range(1, 5)];
                 Debug.Log("Generating Road MetaTile with " + newMetaTile.tileRows.Length + " rows.");
             }
             for (int i = 0; i < newMetaTile.tileRows.Length; i++)
