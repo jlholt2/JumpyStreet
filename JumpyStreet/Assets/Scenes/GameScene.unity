@@ -1571,6 +1571,7 @@ MonoBehaviour:
       - 0
       spawnRate: 3c000000
   currentRow: 0
+  prevMoveSpeed: 0
   movingObjPrefab: {fileID: 222702128253815029, guid: f999e39a377924843b12e629cbf675ac, type: 3}
   fruitPrefab: {fileID: 6755223893994681343, guid: 1240172d91f25b4418ce366fc68c304e, type: 3}
   carSprite: {fileID: -4569824520835217933, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -2094,9 +2095,9 @@ MonoBehaviour:
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: -4758428708751416214, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
-      - typeOfTile: 2
-        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
-      - typeOfTile: 2
+      - typeOfTile: 0
+        tileSprite: {fileID: -4758428708751416214, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 1
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
@@ -2114,6 +2115,49 @@ MonoBehaviour:
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 0
         tileSprite: {fileID: -4758428708751416214, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      spawnData: 0
+      spawnDir: 0
+      moveSpeed:
+      - 0
+      spawnRate: 3c000000
+  - tileRows:
+    - tiles:
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: -4758428708751416214, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 0
+        tileSprite: {fileID: -4758428708751416214, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
+      - typeOfTile: 1
+        tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 1
         tileSprite: {fileID: 8550486988809280638, guid: 2f4902621803ae44dba8da2d6d237cf2, type: 3}
       - typeOfTile: 1
