@@ -300,4 +300,9 @@ public class PlayerController : MonoBehaviour
     {
         deathSound.Play();
     }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
